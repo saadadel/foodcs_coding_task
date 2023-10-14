@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
 
     public $timestamps = true;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +30,7 @@ class Product extends Model
      */
     public function ingredients(): BelongsToMany
     {
-        return $this->belongsToMany(Ingredient::class);
+        return $this->belongsToMany(Ingredient::class)->withPivot('required_amount');
     }
 
 
@@ -41,6 +41,6 @@ class Product extends Model
      */
     public function orders(): BelongsToMany
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class)->withPivot('quantity', 'price')->withTimestamps();
     }
 }

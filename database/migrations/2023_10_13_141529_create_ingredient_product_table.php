@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId("ingredient_id")->constrained(
                 table: "ingredients", column: "id"
             )->cascadeOnDelete();
-            $table->integer("required_amount");
+            $table->unsignedInteger("required_amount");
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("name")->uniqid();
             $table->string("description", 500)->nullable();
-            $table->integer("available_amount"); // in grams
+            $table->unsignedInteger("available_amount"); // in grams
             $table->timestamps();
         });
     }
