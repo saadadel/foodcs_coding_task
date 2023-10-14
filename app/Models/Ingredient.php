@@ -27,6 +27,15 @@ class Ingredient extends Model
         'amount_alert_sent'
     ];
 
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'updated' => IngredientUpdated::class,
+    ];
+
 
     /**
      * The products that belong to the Ingredient
