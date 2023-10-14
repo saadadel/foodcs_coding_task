@@ -20,6 +20,7 @@ class Ingredient extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'merchant_id',
         'name',
         'description',
         'available_amount',
