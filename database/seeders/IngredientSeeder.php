@@ -15,20 +15,26 @@ class IngredientSeeder extends Seeder
     {
         DB::table('ingredients')->insert([
             [
+                "merchant_id" => 1,
                 "name" => "beef",
                 "available_amount" => 20000, // 20kg
+                "min_amount" => 10000, // 50% of the available_amount
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
             ],
             [
+                "merchant_id" => 1,
                 "name" => "cheese",
                 "available_amount" => 5000, // 5kg
+                "min_amount" => 2500, // 50% of the available_amount
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
             ],
             [
+                "merchant_id" => 1,
                 "name" => "onion",
                 "available_amount" => 1000, // 1kg
+                "min_amount" => 500, // 50% of the available_amount
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now()
             ],

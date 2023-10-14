@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Events\IngredientUpdated;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -20,7 +22,9 @@ class Ingredient extends Model
     protected $fillable = [
         'name',
         'description',
-        'amount',
+        'available_amount',
+        'min_amount',
+        'amount_alert_sent'
     ];
 
 
@@ -32,5 +36,15 @@ class Ingredient extends Model
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    /**
+     * Get the merchant that owns the Ingredient
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function merchant(): BelongsTo
+    {
+        return $this->belongsTo(Merchant::class);
     }
 }

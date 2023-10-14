@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("merchant_id")->constrained();
             $table->string("name")->uniqid();
             $table->string("description", 500)->nullable();
             $table->unsignedInteger("available_amount"); // in grams
+            $table->unsignedInteger("min_amount"); // in grams
+            $table->boolean("amount_alert_sent")->default(false);
             $table->timestamps();
         });
     }

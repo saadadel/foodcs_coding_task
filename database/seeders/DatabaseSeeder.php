@@ -26,17 +26,20 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $burger = DB::table("products")->where("name", "burger")->select("id")->first();
+
         $ingredients = DB::table("ingredients")->whereIn("name", [
             "beef",
             "cheese",
             "onion"
         ])->select("id", "name")->get();
+
         $ingredient_product = [];
         $required_amount = [
             "beef" => 150,
             "cheese" => 30,
             "onion" => 20
         ];
+
         foreach ($ingredients as $ing) {
             $ingredient_product[] = [
                 "product_id" => $burger->id,
@@ -46,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 "updated_at" => Carbon::now(),
             ];
         }
-        DB::table('ingredient_product')->insert($ingredient_product);
 
-   }
+        DB::table('ingredient_product')->insert($ingredient_product);
+    }
 }

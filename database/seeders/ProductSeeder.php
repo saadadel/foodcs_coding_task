@@ -13,7 +13,15 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        DB::table("merchants")->insert([
+            "id" => 1,
+            "user_id" => DB::table("users")->select("id")->first()->id,
+            "name" => "SmashBurger",
+            "business_email" => "manager@smashburger.com"
+        ]);
+
         DB::table("products")->insert([
+            "merchant_id" => 1,
             "name" => "burger",
             "description" => "The best burger in town",
             "price" => 11.99,
