@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table("products")->insert([
+            "id" => 1,
             "merchant_id" => 1,
             "name" => "burger",
             "description" => "The best burger in town",

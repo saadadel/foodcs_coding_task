@@ -25,26 +25,18 @@ class DatabaseSeeder extends Seeder
             IngredientSeeder::class
         ]);
 
-        $burger = DB::table("products")->where("name", "burger")->select("id")->first();
-
-        $ingredients = DB::table("ingredients")->whereIn("name", [
-            "beef",
-            "cheese",
-            "onion"
-        ])->select("id", "name")->get();
-
         $ingredient_product = [];
-        $required_amount = [
-            "beef" => 150,
-            "cheese" => 30,
-            "onion" => 20
+        $ingredients = [
+            1 => 150, //beef
+            2 => 30, //cheese
+            3 => 20 //onion
         ];
 
-        foreach ($ingredients as $ing) {
+        foreach ($ingredients as $ing_id => $required_amount) {
             $ingredient_product[] = [
-                "product_id" => $burger->id,
-                "ingredient_id" => $ing->id,
-                "required_amount" => $required_amount[$ing->name],
+                "product_id" => 1,
+                "ingredient_id" => $ing_id,
+                "required_amount" => $required_amount,
                 "created_at" => Carbon::now(),
                 "updated_at" => Carbon::now(),
             ];
