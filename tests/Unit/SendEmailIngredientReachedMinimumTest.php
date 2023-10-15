@@ -2,16 +2,18 @@
 
 namespace Tests\Unit;
 
-use App\Models\Ingredient;
 use Tests\TestCase;
+use App\Models\Ingredient;
 use App\Events\IngredientUpdated;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Event;
 use App\Mail\IngredientInventoryAlert;
 use App\Listeners\IngredientUpdatedListener;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SendEmailIngredientReachedMinimumTest extends TestCase
 {
+    use RefreshDatabase;
 
     public function test_ingredient_updated_event_dispatched(): void
     {

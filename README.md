@@ -57,9 +57,17 @@ This is the implementation of Foodics coding task
 - Clone the Repo
 - `cd` to the project folder
 - Add alias to sail `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
-- Install the project `php artisan sail:install`
 - Set the email server credentials
-- Start the project `sail up` 
+- Install the dependencies
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+``` 
+- Start the project `sail up`
 - Run the migrations `sail artisan migrate`
 - Run the seeders `sail artisan db:seed`
 - run the queue worker to enable email service `sail artisan queue:work`
