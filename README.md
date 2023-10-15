@@ -87,7 +87,7 @@ docker run --rm \
     - Email server credentials
 - Start the server `php artisan serve`
 - Run the migrations `php artisan migrate`
-- Run the seeder `php artisan db:
+- Run the seeder `php artisan db`:
 - run the queue worker to enable email service `php artisan queue:work`
 - Run the test cases `php artisan test`
 

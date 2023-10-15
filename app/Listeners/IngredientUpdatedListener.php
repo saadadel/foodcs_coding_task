@@ -46,9 +46,6 @@ class IngredientUpdatedListener implements ShouldQueue
             $event->ingredient->available_amount > $event->ingredient->min_amount &&
             $event->ingredient->amount_alert_sent
         ) {
-            dd($event->ingredient);
-
-
             // set to false to be able to alert again when the amount decrease to min
             $event->ingredient->amount_alert_sent = false;
             $event->ingredient->save();
