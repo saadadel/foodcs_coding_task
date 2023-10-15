@@ -80,10 +80,11 @@ docker run --rm \
 ### Local machine installation
 - Clone the Repo
 - `cd` to the project folder
-- Install the dependecies `composer install`
+- Install the dependencies `composer install`
 - Set your env vars: 
     - Database credentials
     - Email server credentials
+- Start the server `php artisan serve`
 - Run the migrations `php artisan migrate`
 - Run the seeder `php artisan db:
 - run the queue worker to enable email service `php artisan queue:work`
@@ -96,10 +97,10 @@ docker run --rm \
 - Create order with invalid request body
 - Email sent to the merchant when an ingredient amount reaches its minimum (set to 50% of the seeded data)
 - No email will be sent after the first alert, on the same ingredient
-- Ingredient updated event (the event responsible of sending the alert email) is dispatched corectlly
+- Ingredient updated event (the event responsible of sending the alert email) is dispatched correctly
  
  
 ***
-***Seeded user credentails***
+***Seeded user credentials***
 email: test@example.com
 password: password
