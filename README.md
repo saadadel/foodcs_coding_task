@@ -57,7 +57,8 @@ This is the implementation of Foodics coding task
 - Clone the Repo
 - `cd` to the project folder
 - Add alias to sail `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
-- Set the email server credentials
+- `cp .env.example .env`
+- Set the email server credentials in .env file
 - Install the dependencies
 ```
 docker run --rm \
@@ -67,8 +68,11 @@ docker run --rm \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
 ``` 
-- Start the project `sail up`
+- Start the project `sail up` it uses port 3316 for mysql and 8001 for the server, make sure they are available
 - Run the migrations `sail artisan migrate`
+    - Do the following only if you faced Database Connection Refused Error from the above command
+        - run `docker network inspect bridge`
+        - take the value from `IPAM.Config.Gateway` and replace it with `DB_HOST` in `.env` file
 - Run the seeders `sail artisan db:seed`
 - run the queue worker to enable email service `sail artisan queue:work`
 - Run the test cases `sail artisan test`
