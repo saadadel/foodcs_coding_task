@@ -81,7 +81,8 @@ docker run --rm \
 - Clone the Repo
 - `cd` to the project folder
 - Install the dependencies `composer install`
-- Set your env vars: 
+- `cp .env.example .env`
+- Set your env vars in `.env`: 
     - Database credentials
     - Email server credentials
 - Start the server `php artisan serve`
